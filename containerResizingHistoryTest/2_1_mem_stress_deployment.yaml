@@ -14,15 +14,13 @@ spec:
         app: memory-stress-ctr
     spec:
       containers:
-      - name: memory-stress-ctr
+      - env:
+        - name: RUN_TYPE
+          value: memory
+        - name: MEMORY_NUM
+          value: "950"
         image: beekman9527/cpumemload:latest
+        name: memory-stress-ctr
         resources:
           limits:
-            memory: 1152Mi
-          requests:
-            memory: 500Mi
-        env:
-        - name: RUN_TYPE
-          value: "memory"
-        - name: MEMORY_NUM
-          value: "10"
+            memory: 1408Mi
